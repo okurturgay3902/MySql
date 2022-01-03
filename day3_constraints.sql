@@ -106,6 +106,18 @@
     INSERT INTO notlar VALUES ('125', 'tarih',90);
     INSERT INTO notlar VALUES ('126', 'Matematik',90);
     
+    -- FK ile birleştirilen tablolardaki tüm verileri çekmek için 
+    -- JOIN İşlemi yapmak gerekir. Bu konuyu sonra göreceğiz.
+    SELECT * FROM talebeler, notlar WHERE talebeler.id = notlar.talebe_id; -- tablolari birbiirne bagli gosterir
+    
+    
+    delete from notlar where talebe_id='124'; -- child
+    delete from talebeler where id='124'; -- parent
+    
+    
+    select * from talebeler;
+    select * from notlar;
+    
     drop table talebeler;
     
     
