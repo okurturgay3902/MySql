@@ -1,5 +1,6 @@
 use sys;
 
+--  -----concat-------
 create table customer (
 musteri_no int,
 ad VARCHAR(22),
@@ -17,3 +18,25 @@ select * from customer;
 
 select concat('Adiniz Soyadiniz:',ad, ' ',soyad) ad_soyad from customer;
 select concat(musteri_no,'.) ', ad, ' ',soyad) ad_soyad, sehir, cinsiyet, puan from customer;
+
+-- **************************  length-left-right (String functions) **************************
+
+select ad, length(ad), soyad, length(soyad) from customer;
+
+select ad, left(ad,1), soyad, left(soyad,1) from customer;
+
+select ad, soyad, concat(left(ad,1),'.', left(soyad,1),'.') as bas_harfler from customer;
+
+
+-- soru: isimleri MORIS -> MRS şeklinde yazdırınız.
+
+select ad, concat(left(ad,1),right(left(ad,3),1),right(left(ad,5),1)) from customer;
+
+
+-- soru:  5 ve 5 karakterden büyük olan isimleri MORRIS -> MRS şeklinde yazdırınız.
+-- yani 1. , 3. ve 5. karakterleri alınız
+select ad, concat(left(ad,1),right(left(ad,3),1),right(left(ad,5),1)) from customer
+where length(ad)>=5;
+
+
+
